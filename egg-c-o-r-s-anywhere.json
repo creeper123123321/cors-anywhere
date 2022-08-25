@@ -1,0 +1,52 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "exported_at": "2022-08-25T20:05:17-03:00",
+    "name": "CORS Anywhere",
+    "author": "crp@re.yt.nom.br",
+    "description": "CORS Anywhere is a NodeJS reverse proxy which adds CORS headers to the proxied request.",
+    "features": null,
+    "docker_images": {
+        "ghcr.io\/pterodactyl\/yolks:nodejs_18": "ghcr.io\/pterodactyl\/yolks:nodejs_18"
+    },
+    "file_denylist": [],
+    "startup": "PORT={{SERVER_PORT}} node --max-old-space-size={{SERVER_MEMORY}} server.js",
+    "config": {
+        "files": "{}",
+        "startup": "{\r\n    \"done\": \"Running CORS Anywhere on \"\r\n}",
+        "logs": "{}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/ash\r\ncd \/mnt\/server\r\ngit config --global --add safe.directory \/mnt\/server\r\ngit pull || git clone https:\/\/github.com\/creeper123123321\/cors-anywhere .\/\r\napk add --update npm\r\nnpm install",
+            "container": "ghcr.io\/pterodactyl\/installers:alpine",
+            "entrypoint": "ash"
+        }
+    },
+    "variables": [
+        {
+            "name": "Rate Limit",
+            "description": "",
+            "env_variable": "CORSANYWHERE_RATELIMIT",
+            "default_value": "200 5 localhost example.com",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|regex:\/^[\\d]+ [\\d]+( [\\w\\.]+)*$\/",
+            "field_type": "text"
+        },
+        {
+            "name": "Blacklist",
+            "description": "",
+            "env_variable": "CORSANYWHERE_BLACKLIST",
+            "default_value": "https:\/\/abuse.example.com,http:\/\/abuse.example.com",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|regex:\/^(,?https?:\\\/\\\/[\\w\\.]+)*$\/",
+            "field_type": "text"
+        }
+    ]
+}
