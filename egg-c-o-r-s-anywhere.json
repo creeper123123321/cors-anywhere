@@ -4,13 +4,13 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2022-08-25T20:05:17-03:00",
+    "exported_at": "2026-10-21T19:10:50-03:00",
     "name": "CORS Anywhere",
     "author": "crp@re.yt.nom.br",
     "description": "CORS Anywhere is a NodeJS reverse proxy which adds CORS headers to the proxied request.",
-    "features": null,
+    "features": [],
     "docker_images": {
-        "ghcr.io\/pterodactyl\/yolks:nodejs_18": "ghcr.io\/pterodactyl\/yolks:nodejs_18"
+        "Node.js 22": "ghcr.io\/ptero-eggs\/yolks:nodejs_22"
     },
     "file_denylist": [],
     "startup": "PORT={{SERVER_PORT}} node --max-old-space-size={{SERVER_MEMORY}} server.js",
@@ -50,3 +50,4 @@
         }
     ]
 }
+
